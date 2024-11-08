@@ -1,8 +1,10 @@
 package pe.joedayz.training.service;
 
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import pe.joedayz.training.client.ExpenseServiceClient;
 import pe.joedayz.training.model.Expense;
 
@@ -14,6 +16,8 @@ import java.util.Set;
 public class ClientResource {
 
 
+    @Inject
+    @RestClient
     ExpenseServiceClient service;
 
     @GET
