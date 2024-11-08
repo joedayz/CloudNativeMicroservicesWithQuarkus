@@ -9,10 +9,10 @@ public class Example {
 
 //    @ConfigProperty(name = "format")
 //    Optional<String> format;
-//
+////
 //    @ConfigProperty(name = "debug-flag", defaultValue = "false")
 //    boolean debugFlag;
-//
+////
 //    @ConfigProperty(name="unit")
 //    String unit;
 

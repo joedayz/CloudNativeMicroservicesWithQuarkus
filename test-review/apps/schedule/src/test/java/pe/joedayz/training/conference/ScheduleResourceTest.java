@@ -1,5 +1,7 @@
 package pe.joedayz.training.conference;
 
+import io.quarkus.test.common.http.TestHTTPEndpoint;
+import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +11,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-
+@QuarkusTest
+@TestHTTPEndpoint(ScheduleResource.class)
 public class ScheduleResourceTest {
 
     private static final int GIVEN_ID = 101;
