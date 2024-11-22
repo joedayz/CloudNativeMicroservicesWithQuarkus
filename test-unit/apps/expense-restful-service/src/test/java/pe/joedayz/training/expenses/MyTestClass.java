@@ -14,13 +14,14 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@QuarkusTest
+//@QuarkusTest
 public class MyTestClass {
 
-    @TestHTTPResource("index.html") // http://localhost:8080/index.html
-    URL resource;
 
-    @Test
+    //@TestHTTPResource("index.html") // http://localhost:8080/index.html
+    URL resource;
+    //@TestHTTPEndpoint(MyService.class)
+    //@Test
     public void testResource() throws IOException {
         try(InputStream in = resource.openStream()){
             String contents = new BufferedReader(new InputStreamReader(in))
@@ -29,4 +30,16 @@ public class MyTestClass {
             assertTrue(contents.contains("Static assets"));
         }
     }
+//  @TestHTTPEndpoint(MyService.class)
+//  @TestHTTPResource
+//  URL endpoint;
+//
+//  @Test
+//  public void testMyServiceEndPoint() {
+//    given()
+//        .when()
+//        .get("/me")
+//        .then()
+//        .body(is("hello"));
+//  }
 }

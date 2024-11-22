@@ -1,24 +1,35 @@
 package pe.joedayz.training.expenses;
 
+import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
+import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
+@TestHTTPEndpoint( ExpenseResource.class )
 public class ExpenseCreationTest {
 
 
     @Test
     public void testCreateExpense() {
-        //Given
+        given()
+            .body( Expense.of( "Test Expense", Expense.PaymentMethod.CASH, "1234" ) )
+            .contentType( ContentType.JSON )
+            .post();
 
-        //When
-
-        //Then
-
-        fail();
-        //Hamcrest  y AssertJ
+        when()
+            .get()
+            .then()
+            .statusCode( 200 )
+            .assertThat()
+            .body( "size()", is( 1 ) )
+            .body( "[0].name", is( "Test Expense" ) )
+            .body( "[0].paymentMethod", is( Expense.PaymentMethod.CASH.name() ) )
+            .body( "[0].amount", is( 1234.0F ) );
     }
 
 }

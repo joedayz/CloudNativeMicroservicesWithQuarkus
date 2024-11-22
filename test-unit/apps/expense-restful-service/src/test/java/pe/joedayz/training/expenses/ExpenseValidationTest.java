@@ -1,5 +1,7 @@
 package pe.joedayz.training.expenses;
 
+import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -7,11 +9,12 @@ import pe.joedayz.training.expenses.Expense.PaymentMethod;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
+@QuarkusTest
 public class ExpenseValidationTest {
 
+    @Inject
     ExpenseConfiguration config;
-
+    @Inject
     ExpenseValidator validator;
 
     @Test
