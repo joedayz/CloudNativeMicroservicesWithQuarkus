@@ -6,8 +6,8 @@ import pe.joedayz.training.speaker.idgenerator.IdGenerator;
 
 import java.util.UUID;
 
-@Mock
-@Singleton
+@Mock //5
+@Singleton //6
 public class DeterministicIdGenerator implements IdGenerator {
 
     private UUID nextUUID = new UUID( 0, 0 );

@@ -16,7 +16,7 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class SpeakerResourceTest {
 
-    @Inject
+    @Inject //4
     DeterministicIdGenerator idGenerator;
 
     @Test
@@ -40,8 +40,8 @@ public class SpeakerResourceTest {
 
     @Test
     public void testListEmptySpeakers() {
-        PanacheMock.mock( Speaker.class );
-        Mockito.when( Speaker.listAll() ).thenReturn( Collections.emptyList() );
+        PanacheMock.mock( Speaker.class ); //7
+        Mockito.when( Speaker.listAll() ).thenReturn( Collections.emptyList() );//8
         given()
                 .when()
                 .get( "/speaker" )

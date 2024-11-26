@@ -11,8 +11,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-@QuarkusTest
-@TestHTTPEndpoint(ScheduleResource.class)
+@QuarkusTest //1
+@TestHTTPEndpoint(ScheduleResource.class) //2
 public class ScheduleResourceTest {
 
     private static final int GIVEN_ID = 101;

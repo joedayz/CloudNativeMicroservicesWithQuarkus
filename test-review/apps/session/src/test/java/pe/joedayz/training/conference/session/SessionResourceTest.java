@@ -40,7 +40,7 @@ public class SessionResourceTest {
 
     int speakerId = 12;
 
-    Mockito.when(
+    Mockito.when( //5
         speakerService.getById(Mockito.anyInt())
     ).thenReturn(new Speaker(speakerId, "Pablo", "Solar")
     );

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 @TestHTTPEndpoint( AssociateResource.class )
+@WithPostgresDB(username = "tc-user", password = "tc-pass", name = "tc-test")
 public class AssociateResourceTest {
 
 	@Test
