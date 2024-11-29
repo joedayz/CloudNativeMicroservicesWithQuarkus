@@ -1,11 +1,18 @@
-FROM registry.ocp4.example.com:8443/ubi9/python-39
+FROM registry.access.redhat.com/ubi9/python-39
 
+# Configurar directorio de trabajo
+WORKDIR /app
+
+# Copiar y instalar dependencias
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
-
+# Copiar la aplicación
 COPY app.py .
 
+# Exponer el puerto
 EXPOSE 5000
 
+# Comando de inicio
 CMD ["flask", "run", "--host", "0.0.0.0"]
+
