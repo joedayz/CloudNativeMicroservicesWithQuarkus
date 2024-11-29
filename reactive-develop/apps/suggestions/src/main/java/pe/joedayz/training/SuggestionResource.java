@@ -22,4 +22,17 @@ public class SuggestionResource {
     public Uni<Long> deleteAll() {
         return Suggestion.deleteAll();
     }
+
+    @POST
+    public Uni<Suggestion> create( Suggestion newSuggestion ) {
+        return Panache.withTransaction( newSuggestion::persist );
+    }
+
+    @GET
+    @Path( "/{id}" )
+    public Uni<Suggestion> get( Long id ) {
+        return Suggestion.findById( id );
+    }
+
+
 }
