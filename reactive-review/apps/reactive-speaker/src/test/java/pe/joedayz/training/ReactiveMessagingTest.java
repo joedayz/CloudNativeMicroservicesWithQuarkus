@@ -19,7 +19,6 @@ import jakarta.enterprise.inject.Any;
 import jakarta.inject.Inject;
 import java.util.List;
 
-import static pe.joedayz.training.SpeakerResourceTest.*;
 import static org.awaitility.Awaitility.await;
 
 @QuarkusTest
@@ -36,10 +35,10 @@ class ReactiveMessagingTest {
         InMemorySink<EmployeeSignedUp> eventsOut = connector.sink("employees-out");
 
         SpeakerWasCreated initialEvent = new SpeakerWasCreated(
-                TESTING_ID,
-                TESTING_NAME,
+                SpeakerResourceTest.TESTING_ID,
+                SpeakerResourceTest.TESTING_NAME,
                 Affiliation.RED_HAT,
-                TESTING_EMAIL
+                SpeakerResourceTest.TESTING_EMAIL
         );
 
         eventsIn.send(initialEvent);
@@ -48,9 +47,9 @@ class ReactiveMessagingTest {
 
         EmployeeSignedUp queuedEvent = eventsOut.received().get(0).getPayload();
 
-        Assertions.assertEquals(TESTING_ID, queuedEvent.speakerId);
-        Assertions.assertEquals(TESTING_NAME, queuedEvent.fullName);
-        Assertions.assertEquals(TESTING_EMAIL, queuedEvent.email);
+        Assertions.assertEquals(SpeakerResourceTest.TESTING_ID, queuedEvent.speakerId);
+        Assertions.assertEquals(SpeakerResourceTest.TESTING_NAME, queuedEvent.fullName);
+        Assertions.assertEquals(SpeakerResourceTest.TESTING_EMAIL, queuedEvent.email);
     }
 
     @Test
@@ -59,10 +58,10 @@ class ReactiveMessagingTest {
         InMemorySink<UpstreamMemberSignedUp> eventsOut = connector.sink("upstream-members-out");
 
         SpeakerWasCreated initialEvent = new SpeakerWasCreated(
-                TESTING_ID,
-                TESTING_NAME,
+                SpeakerResourceTest.TESTING_ID,
+                SpeakerResourceTest.TESTING_NAME,
                 Affiliation.GNOME_FOUNDATION,
-                TESTING_EMAIL
+                SpeakerResourceTest.TESTING_EMAIL
         );
 
         eventsIn.send(initialEvent);
@@ -71,8 +70,8 @@ class ReactiveMessagingTest {
 
         UpstreamMemberSignedUp queuedEvent = eventsOut.received().get(0).getPayload();
 
-        Assertions.assertEquals(TESTING_ID, queuedEvent.speakerId);
-        Assertions.assertEquals(TESTING_NAME, queuedEvent.fullName);
-        Assertions.assertEquals(TESTING_EMAIL, queuedEvent.email);
+        Assertions.assertEquals(SpeakerResourceTest.TESTING_ID, queuedEvent.speakerId);
+        Assertions.assertEquals(SpeakerResourceTest.TESTING_NAME, queuedEvent.fullName);
+        Assertions.assertEquals(SpeakerResourceTest.TESTING_EMAIL, queuedEvent.email);
     }
 }

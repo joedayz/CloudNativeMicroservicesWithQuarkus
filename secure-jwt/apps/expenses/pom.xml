@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>pe.joedayz.training</groupId>
-  <artifactId>reactive-speaker</artifactId>
+  <groupId>com.redhat.training.expenses</groupId>
+  <artifactId>expenses-service</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <compiler-plugin.version>3.12.1</compiler-plugin.version>
@@ -16,7 +16,6 @@
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.2.5</surefire-plugin.version>
   </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -31,31 +30,19 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-reactive</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-reactive-pg-client</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-reactive-panache</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-openapi</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-jwt</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-jwt-build</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -70,21 +57,6 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5-mockito</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-panache-mock</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.smallrye.reactive</groupId>
-      <artifactId>smallrye-reactive-messaging-in-memory</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.awaitility</groupId>
-      <artifactId>awaitility</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
